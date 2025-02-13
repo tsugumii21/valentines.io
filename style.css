@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+:root {
+  --primary-color: #26953c;
+  --secondary-color: rgb(166, 37, 82);
+  --background-gradient: linear-gradient(135deg, #f5e0ee, #d5aecb);
+  --font-color: #4a4a4a;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --btn-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  --transition: 0.3s ease-in-out;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +21,9 @@ html {
 }
 
 body {
-  background: linear-gradient(135def, #f5e0ee, #d5aecb);
+  background: var(--background-gradient);
   font-family: "Poppins", serif;
-  color: #4a4a4a;
+  color: var(--font-color);
   text-align: center;
   display: flex;
   justify-content: center;
@@ -29,7 +39,7 @@ body {
   padding: 4rem;
   border-radius: 15px;
   background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }
 
 .img {
@@ -37,7 +47,7 @@ body {
   height: 28rem;
   border-radius: 12px;
   margin-bottom: 2rem;
-  transition: transform 0.3s ease-in-out;
+  transition: transform var(--transition);
 }
 
 .img:hover {
@@ -65,22 +75,25 @@ body {
   font-size: 1.8rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  &:hover {
-    transform: translateY(-2px);
-  }
+  transition: all var(--transition);
+  box-shadow: var(--btn-shadow);
 }
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
 .btn-yes {
-  background-color: #26953c;
+  background-color: var(--primary-color);
   color: white;
 }
 
 .btn-no {
-  background-color: rgb(166, 37, 82);
+  background-color: var(--secondary-color);
   color: white;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color var(--transition), transform 0.2s;
 }
+
 .hidden {
   display: none;
 }
