@@ -21,12 +21,14 @@ let noCount = 0;
 let noButtonSize = 1;
 let yesButtonSize = 1;
 
+// Event listener for the "Yes" button
 yesBtn.addEventListener("click", () => {
   title.innerHTML = "Yay! I Love You!! 💗";
   btnContainer.classList.add("hidden");
   changeImage("yes");
 });
 
+// Event listener for the "No" button
 noBtn.addEventListener("click", () => {
   if (play) {
     noCount++;
@@ -39,16 +41,19 @@ noBtn.addEventListener("click", () => {
   }
 });
 
+// Function to resize the "Yes" button
 function resizeYesButton() {
-  yesButtonSize *= 1.2;
+  yesButtonSize *= 1.1;
   yesBtn.style.transform = `scale(${yesButtonSize})`;
 }
 
+// Function to shrink the "No" button
 function shrinkNoButton() {
   noButtonSize *= 0.9;
   noBtn.style.transform = `scale(${noButtonSize})`;
 }
 
+// Function to generate messages based on the number of "No" clicks
 function generateMessage(noCount) {
   const messages = [
     "No 😔",
@@ -61,6 +66,7 @@ function generateMessage(noCount) {
   return messages[Math.min(noCount, messages.length - 1)];
 }
 
+// Function to change the image based on the response
 function changeImage(image) {
   img.src =
     image === "yes"
@@ -68,6 +74,7 @@ function changeImage(image) {
       : tontonGifs[image];
 }
 
+// Function to update the "No" button text
 function updateNoButtonText() {
   noBtn.innerHTML = generateMessage(noCount);
 }
